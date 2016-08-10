@@ -1,0 +1,14 @@
+package lab2;
+
+public class Driver {
+	public static void main(String[] args) {
+		Student lab2[] = new Student[40];
+		lab2 = Util.readFile("score.txt", lab2);
+		Statistics statlab2 = new Statistics();
+		statlab2.findlow(lab2);
+		statlab2.findhigh(lab2);// add calls to findhigh and find average
+		statlab2.findavg(lab2);
+
+		// Print the data and statistics
+	}
+}

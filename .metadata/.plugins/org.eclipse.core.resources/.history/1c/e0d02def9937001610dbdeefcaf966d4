@@ -1,0 +1,42 @@
+public interface myConstant
+public boolean DEBUG = true;
+}
+
+public interface Instructor {
+	public void LoadandComputeData(String fname);
+
+	public void CheckStudentScore(int sid); // print statistics and student
+											// data.
+}
+
+
+public class GradeBookAPI extends GradeBookBridge implements MyConstants, Instructor, Student {
+} // ~ to Hero.
+
+public abstract class GradeBookBridge {
+private static Student [];}
+private static statistics staty;
+public void LoadandComputeData(String fname) {
+//call the method to read the file and create stu array.
+//call method to compute statistics.
+//call print method with DEBUG flag.
+}
+
+
+public void CheckStudentScore(int sid) {
+//print student score
+//print statistics for class
+}
+}
+
+public class Driver {
+	public static void main(String[] args) {
+		Student a11 = new GradeBookAPI();
+		a11.LoadandComputeData(); // error
+		Instructor a1 = new GradeBookAPI();
+		a1.LoadandComputeData("a1.txt");
+		a1.CheckStudentScore(1221);
+		Student a12 = new GradeBookAPI();
+		a12.CheckStudentScore(1224);
+	}
+}

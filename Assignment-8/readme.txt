@@ -1,0 +1,1 @@
+This is example of using GeometricObject class to create triangle class and apply for the Concepts of Inner classes

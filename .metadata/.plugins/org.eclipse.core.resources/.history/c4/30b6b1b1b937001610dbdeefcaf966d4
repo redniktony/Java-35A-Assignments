@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Driver {
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("\t\tTriangle Information Program ");
+		System.out.println("=============================================================");
+		GeometricObject obj = new GeometricObject();
+		GeometricObject.TriangleObject innerObj = obj.new TriangleObject();
+
+
+		
+		System.out.println("Enter three sides of the triangle: ");
+		System.out.println("=============================================================");
+		System.out.println("Please enter the value of the first side: ");
+		input = new Scanner(System.in);
+		double firstSide = input.nextDouble();
+		innerObj.setFirstSide(firstSide);
+
+		// side 2
+		System.out.println("Please enter the value of the second side: ");
+		input = new Scanner(System.in);
+		double secondSide = input.nextDouble();
+		innerObj.setSecondSide(secondSide);
+
+		// side 3
+		System.out.println("Please enter the value of the third side: ");
+		input = new Scanner(System.in);
+		double thirdSide = input.nextDouble();
+		innerObj.setThirdSide(thirdSide);
+		
+		System.out.println("=============================================================");
+		System.out.println("Please enter the color of the object: ");
+		input = new Scanner(System.in);
+		String color = input.nextLine();
+		innerObj.setColor(color);
+		boolean filled;
+		System.out.println("Is it filled: (y or n)");
+		input = new Scanner(System.in);
+		String choice = input.next();
+		if (choice == "y") {
+			filled = true;
+		} else {
+			filled = false;
+		}
+		innerObj.setFilled(filled);
+		innerObj.toString();
+		innerObj.printData();
+		System.out.println("=============================================================");
+		System.out.println("Thanks for using!!!");
+		System.out.println("=============================================================");
+	}
+}

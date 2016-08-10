@@ -1,0 +1,25 @@
+Current balance: 2000.0
+Your monthly interest is 6.6666665
+New savings balance: 2006.6666
+
+Current balance: 2006.6666
+Your monthly interest is 8.361111
+New savings balance: 2015.0277
+
+==================================
+Current balance: 3000.0
+Your monthly interest is 10.0
+New savings balance: 3010.0
+
+Current balance: 3010.0
+Your monthly interest is 12.541667
+New savings balance: 3022.5417
+
+==================================
+Current balance: 10000.0
+Your monthly interest is 41.666668
+New savings balance: 10041.667
+
+Current balance: 10041.667
+Your monthly interest is 41.84028
+New savings balance: 10083.507

@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+/*Zequn Yu
+    CIS 35A, 61Y
+    Lab 8
+    6/13/2016
+    6/15/2016
+*/
+
+public class Driver {
+	public static void main(String [] args) {
+		
+		Scanner input = new Scanner(System.in);
+
+		//prompt
+		System.out.print("******************************\n");
+		System.out.print("Welcome to create one triangle object! \n");
+		System.out.print("******************************\n\n");
+		//Instantiating the outer class
+		GeometricObject obj= new GeometricObject();
+		GeometricObject.TriangleObject innerObj = obj.new TriangleObject();
+		
+		//ask user to enter the information
+		
+		//the color
+		System.out.println("Please enter the color of the object: ");
+		input = new Scanner(System.in);
+		String color = input.nextLine();
+		obj.setColor(color);
+		
+		//filled
+		boolean filled;
+		System.out.println("Is it filled: (1 for yes, 2 for no)");
+		input = new Scanner(System.in);
+		int judge = input.nextInt();
+			if(judge == 1)
+				{
+					filled = true;
+				}
+			else
+				{
+					filled = false;
+				}
+		obj.setFilled(filled);
+		
+		//three sides
+		//side 1
+		System.out.println("Please enter the value of the first side: ");
+		input = new Scanner(System.in);
+		double firstSide = input.nextDouble();
+		innerObj.setFirstSide(firstSide);
+
+		//side 2
+		System.out.println("Please enter the value of the second side: ");
+		input = new Scanner(System.in);
+		double secondSide = input.nextDouble();
+		innerObj.setSecondSide(secondSide);
+		
+		//side 3
+		System.out.println("Please enter the value of the third side: ");
+		input = new Scanner(System.in);
+		double thirdSide = input.nextDouble();
+		innerObj.setThirdSide(thirdSide);
+		
+		//use the method
+		obj.toString();
+		innerObj.printData();
+	}
+}

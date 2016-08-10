@@ -1,0 +1,37 @@
+package lab2;
+
+public class Statistics {
+	private int[] lowscores = new int[5];
+	private int[] highscores = new int[5];
+	private int[] avgscores = new int[5];
+
+	int numberOfStudent = Util.number;
+
+	void findlow(Student[] a) {
+		/*
+		 * This method will find the lowest score and store it in an array names
+		 * lowscores.
+		 */
+		int lowest = 100;
+		for (int column=0;column < 5;column++){
+			for (int row = 0; row < Util.numberOfStudent();; row++ ){
+				
+			}
+		}
+	}
+
+	void findhigh(Student[] a) {
+		/*
+		 * This method will find the highest score and store it in an array
+		 * names highscores.
+		 */
+	}
+
+	void findavg(Student[] a) {
+		/*
+		 * This method will find avg score for each quiz and store it in an
+		 * array names avgscores.
+		 */
+	}
+	// add methods to print values of instance variables.
+}

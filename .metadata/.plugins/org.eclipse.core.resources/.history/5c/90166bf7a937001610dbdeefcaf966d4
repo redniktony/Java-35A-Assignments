@@ -1,0 +1,113 @@
+package lab2;
+//Hua Xia
+//CIS 35A 
+//Assignment 6
+//Due Date: May 30
+//Submit Date: June 10
+import java.util.*;
+public class Driver {
+	public static void main(String[] args)
+	{
+		// first read data and store into Student class's score the type is Grade
+		Grade [] stu = new Student[40];
+		// The student's quizzes file provide in the folder
+		
+		
+		
+		
+		
+		stu = FileIO.readFile( "",stu);
+		
+		
+		
+		
+		
+		
+		// now generate lowest, highest, and average scores from the data
+		Stats calculator = new Stats();
+		for(int i = 0; i < stu.length; i++)
+		{
+			// in interface
+			calculator.findlow(stu);
+			calculator.findhigh(stu);
+			calculator.findavg(stu);;
+		}
+		
+		// This method generate scores for matching ID
+		ReportCard(stu, calculator);
+		
+	}
+	
+	
+	// the method is will generate scores that with matching ID
+	// I also add scanner input, so the user can decide when to quiz
+	private static void ReportCard(Grade [] a, Stats s)
+	{
+		// loop to print ID
+		for(int i =0; i < a.length; i++)
+		{
+			// abstract method
+			a[i].printAll();
+		}
+		// abstract method
+		s.printAll();
+		
+		int temp = 0, temp2 = 0, temp3 = 0, temp5 = 0;
+		String temp4 = " ";
+		
+		
+		// below is a algorithm  to ask user to input ID for scores
+		// matching ID will print Quiz1-Quiz5 and ask "Do you want to try it again(yes or no): "
+		// No matching ID will ask the user that "No match ID  nDo you want to try it again(yes or no): "
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("\nEnter ID for scores: ");
+		
+		do
+		{	
+			temp = input.nextInt();
+				
+			for(int i = 0; i < a.length; i++)
+			{
+				temp2 = a[i].SIDForScores(temp);	
+				if(temp2 == 1)
+				{
+					temp3 = i;
+					i = a.length;
+				}
+			}
+			
+			if(temp2 == 1)
+			{
+				a[temp3].printAll();
+				System.out.print("Do you want to try it again(yes or no): ");
+				
+				temp4 = input.next();
+				if(temp4.equalsIgnoreCase("yes"))
+				{
+					System.out.print("Enter ID for scores: ");
+				}
+				else if( temp4.equalsIgnoreCase("no"))
+				{
+					temp5 = 1;
+				}
+			}
+			else
+			{
+				System.out.print("No match ID" + "\nDo you want to try it again(yes or no): ");
+				temp4 = input.next();
+				if(temp4.equalsIgnoreCase("yes"))
+				{
+					System.out.print("Enter ID for scores: ");
+				}
+				else if(temp4.equalsIgnoreCase("no"))
+				{
+					temp5 = 1;
+				}
+				
+			}
+		}while(temp5 == 0);
+		input.close();
+	}
+	
+}

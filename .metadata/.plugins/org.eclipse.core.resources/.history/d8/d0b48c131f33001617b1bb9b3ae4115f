@@ -1,0 +1,62 @@
+package lab2;
+
+public class Statistics {
+	private int[] lowscores = new int[5];
+	private int[] highscores = new int[5];
+	private int[] avgscores = new int[5];
+
+	int numberOfStudent = Util.number;
+
+	void findlow(Student[] a) {
+		/*
+		 * This method will find the lowest score and store it in an array names
+		 * lowscores.
+		 */
+		int lowest = 100;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				if (lowest > a[row].getScores(column)) {
+					lowest = a[row].getScores(column);
+				}
+			}
+			lowscores[column] = lowest;
+			lowest = 100;
+		}
+
+	}
+
+	void findhigh(Student[] a) {
+		/*
+		 * This method will find the highest score and store it in an array
+		 * names highscores.
+		 */
+
+		int highest = 0;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				if (highest < a[row].getScores(column)) {
+					highest = a[row].getScores(column);
+				}
+			}
+			highscores[column] = highest;
+			highest = 0;
+		}
+	}
+
+	void findavg(Student[] a) {
+		/*
+		 * This method will find avg score for each quiz and store it in an
+		 * array names avgscores.
+		 */
+		int total = 0;
+		double average = 0;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				total += a[row].getScores(column);
+			}
+			avgscores[column] = total / numberOfStudent;
+			total = 0;
+		}
+	}
+	// add methods to print values of instance variables.
+}

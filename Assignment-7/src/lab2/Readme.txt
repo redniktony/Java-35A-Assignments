@@ -1,0 +1,1 @@
+This is the class score read program, it calculates the highest score and lowest score for the user. Also, type in the student name can also get the scores comes out.

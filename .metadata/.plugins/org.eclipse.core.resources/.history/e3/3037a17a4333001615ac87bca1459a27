@@ -1,0 +1,58 @@
+package lab2;
+
+import java.io.*;
+import java.util.*;
+
+public class Util {
+
+	public static int number=0;
+
+	static Student[] readFile(String filename, Student[] stu) {
+		// String workingDirectory = System.getProperty("user.dir");
+		// String absoluteFilePath = "";
+		// absoluteFilePath = workingDirectory + File.separator + filename;
+		int row = 0, column = 0;
+		String line;
+		try {
+			
+			FileReader file = new FileReader(filename);
+			BufferedReader buff = new BufferedReader(file);
+			int[] scores = new int[5];
+			while ((line = buff.readLine()) != null) {
+				StringTokenizer st = new StringTokenizer(line);
+				//System.out.println(line);
+				while (st.hasMoreTokens()) {
+					if (column == 0) {
+						stu[row].setSID(Integer.parseInt(st.nextToken()));
+					} else {
+						scores[column - 1] = Integer.parseInt(st.nextToken());
+					}
+					column = 0;
+					row++;
+				}
+			}
+			file.close();
+			buff.close();
+		} catch (IOException e) {
+			System.out.println("Error -- " + e.toString());
+		}
+		if (row > 40) {
+			System.out.println("Sorry. This program can't run over 40 students.");
+			System.exit(0);
+		} else {
+			numberOfStudent(row);
+		}
+		return stu;
+	}
+
+	public static void numberOfStudent(int numbers) {
+		number = numbers;
+	}
+
+	// Reads the file and builds student array.
+	// Open the file using FileReader Object.
+	// In a loop read a line using readLine method.
+	// Tokenize each line using StringTokenizer Object
+	// Each token is converted from String to Integer using parseInt method
+	// Value is then saved in the right property of Student Object.
+}

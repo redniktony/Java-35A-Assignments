@@ -1,0 +1,18 @@
+/*
+ * Huang Kai Hsu
+ * CIS35A
+ * Assignment7
+ */
+interface Inter
+{
+	// from Student class
+	void printSID();
+	void printScores();
+	
+	
+	// from Stats class
+	void findlow(Grade [] a);
+	void findhigh(Grade [] a);
+	void findavg(Grade [] a);
+	
+}

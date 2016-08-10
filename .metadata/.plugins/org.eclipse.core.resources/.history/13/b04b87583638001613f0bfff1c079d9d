@@ -1,0 +1,98 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
+public class JCottageFrame extends JFrame implements ItemListener {
+
+	final int ONE_BEDROOM = 650;
+	final int TWO_BEDROOM = 850;
+	final int ROW_BOAT = 60;
+	int totalPrice;
+	double timeStay;
+	double starttime, stoptime;
+
+	ButtonGroup group = new ButtonGroup();
+	JLabel timeLabel = new JLabel("Enter the date you wish start your stay");
+	JTextField start = new JTextField(10);
+	JLabel timeLabel1 = new JLabel("Enter the date you wish to stop your stay");
+	JTextField Stop = new JTextField(10);
+
+	JCheckBox oneBed = new JCheckBox("Weekly price for one bed room is $" + ONE_BEDROOM, false);
+
+	JCheckBox twoBed = new JCheckBox("Weekly price for two bed room is $" + TWO_BEDROOM, false);
+	JCheckBox boat = new JCheckBox("Boat per week is $" + ROW_BOAT, false);
+
+	JLabel resortLabel = new JLabel("Disney's Cottages Weekly Rentals");
+	JLabel priceLabel = new JLabel("The total price for your stay is");
+
+	JTextField totPrice = new JTextField(4);
+	JLabel optionExplainLabel2 = new JLabel("Choose a bedroom and check if you need a boat.");
+
+	public JCottageFrame() {
+
+		super("JCottageFrame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setLayout(new FlowLayout());
+
+		add(resortLabel);
+		add(optionExplainLabel2);
+		add(timeLabel);
+		add(start);
+		add(timeLabel1);
+		add(Stop);
+		group.add(oneBed);
+		group.add(twoBed);
+		add(oneBed);
+		add(twoBed);
+		add(boat);
+
+		add(priceLabel);
+		add(totPrice);
+
+		totPrice.setText("$" + totalPrice);
+
+		oneBed.addItemListener(this);
+		twoBed.addItemListener(this);
+		boat.addItemListener(this);
+	}
+
+	public void itemStateChanged(ItemEvent event) {
+		Object source = event.getSource();
+
+		starttime = Double.parseDouble(start.getText());
+		stoptime = Double.parseDouble(Stop.getText());
+		timeStay = stoptime - starttime;
+		int select = event.getStateChange();
+
+		if (source == oneBed)
+			if (select == ItemEvent.SELECTED)
+				totalPrice += ONE_BEDROOM * timeStay / 7;
+			else
+				totalPrice -= ONE_BEDROOM * timeStay / 7;
+		else if (source == twoBed) {
+			if (select == ItemEvent.SELECTED)
+				totalPrice += TWO_BEDROOM * timeStay / 7;
+			else
+				totalPrice -= TWO_BEDROOM * timeStay / 7;
+		} else if (select == ItemEvent.SELECTED)
+			totalPrice += ROW_BOAT * timeStay / 7;
+		else
+			totalPrice -= ROW_BOAT * timeStay / 7;
+		totPrice.setText("$" + totalPrice);
+	}
+
+	public static void main(String[] args) {
+		JCottageFrame aFrame = new JCottageFrame();
+
+		final int WIDTH = 400;
+		final int HEIGHT = 600;
+		aFrame.setSize(WIDTH, HEIGHT);
+
+		aFrame.setVisible(true);
+
+		aFrame.setLocationRelativeTo(null);
+	}
+
+}

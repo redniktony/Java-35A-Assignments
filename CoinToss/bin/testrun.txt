@@ -1,0 +1,20 @@
+		Welcom To Coin Toss Game!!!
+===================================================
+Please enter how many times you want toss the coin:
+10
+===================================================
+1. Toss result: tails
+2. Toss result: tails
+3. Toss result: tails
+4. Toss result: heads
+5. Toss result: heads
+6. Toss result: heads
+7. Toss result: heads
+8. Toss result: tails
+9. Toss result: tails
+10. Toss result: tails
+===================================================
+Final Count for Toss
+Heads: 4
+Tails: 6
+===================================================

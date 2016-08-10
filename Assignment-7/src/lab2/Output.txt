@@ -1,0 +1,97 @@
+		Class Score Calculator
+===================================================
+This Program calculate the class score txt file which 
+have putted on the project folder. In the program end.
+You can see the Lowest, Highest and average score for 
+each quiz. 
+===================================================
+Please Enter Your (.txt) File Name: 
+scores
+
+===================================================
+Student id 2134
+Lab 1 through 5 scores 
+090 036 090 077 030
+
+Student id 3124
+Lab 1 through 5 scores 
+100 045 020 090 070
+
+Student id 4532
+Lab 1 through 5 scores 
+011 017 081 032 077
+
+Student id 5678
+Lab 1 through 5 scores 
+020 012 045 078 034
+
+Student id 6134
+Lab 1 through 5 scores 
+034 080 055 078 045
+
+Student id 7874
+Lab 1 through 5 scores 
+060 100 056 078 078
+
+Student id 8026
+Lab 1 through 5 scores 
+070 010 066 078 056
+
+Student id 9893
+Lab 1 through 5 scores 
+034 009 077 078 020
+
+Student id 1947
+Lab 1 through 5 scores 
+045 040 088 078 055
+
+Student id 2877
+Lab 1 through 5 scores 
+055 050 099 078 080
+
+Student id 3189
+Lab 1 through 5 scores 
+022 070 100 078 077
+
+Student id 4602
+Lab 1 through 5 scores 
+089 050 091 078 060
+
+Student id 5405
+Lab 1 through 5 scores 
+011 011 000 078 010
+
+Student id 6999
+Lab 1 through 5 scores 
+000 098 089 078 020
+
+===================================================
+		Class Scores
+===================================================
+	     L1 L2 L3 L4 L5
+High Score 100 100 100 90 80 
+Low  Score  0  9  0  32  10  
+Average Score 45.78 44.85 68.35 75.5 50.85 
+===================================================
+Please enter ID for student score data
+
+Enter ID: 6999
+Student id 6999
+Lab 1 through 5 scores 
+000 098 089 078 020
+
+Use it again?(y or n): y
+Enter ID for scores: 4532
+Student id 4532
+Lab 1 through 5 scores 
+011 017 081 032 077
+
+Use it again?(y or n): y
+Enter ID for scores: 3189
+Student id 3189
+Lab 1 through 5 scores 
+022 070 100 078 077
+
+Use it again?(y or n): n
+Thanks for using!!!
+===================================================

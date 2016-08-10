@@ -1,0 +1,86 @@
+package lab2;
+
+public class Statistics {
+	private int[] lowscores = new int[5];
+	private int[] highscores = new int[5];
+	private float[] avgscores = new float[5];
+
+	int numberOfStudent = Util.number;
+
+	public void findlow(Student[] a) {
+		/*
+		 * This method will find the lowest score and store it in an array names
+		 * lowscores.
+		 */
+		int lowest = 100;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				if (lowest > a[row].getScores(column)) {
+					lowest = a[row].getScores(column);
+				}
+			}
+			lowscores[column] = lowest;
+			lowest = 100;
+		}
+
+	}
+
+	public void findhigh(Student[] a) {
+		/*
+		 * This method will find the highest score and store it in an array
+		 * names highscores.
+		 */
+
+		int highest = 0;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				if (highest < a[row].getScores(column)) {
+					highest = a[row].getScores(column);
+				}
+			}
+			highscores[column] = highest;
+			highest = 0;
+		}
+	}
+
+	public void findavg(Student[] a) {
+		/*
+		 * This method will find avg score for each quiz and store it in an
+		 * array names avgscores.
+		 */
+		int total = 0;
+		for (int column = 0; column < 5; column++) {
+			for (int row = 0; row < numberOfStudent; row++) {
+				total += a[row].getScores(column);
+			}
+			avgscores[column] = (float) total / numberOfStudent;
+			total = 0;
+		}
+	}
+
+	// add methods to print values of instance variables.
+
+	public void printlow() {
+		System.out.printf("Low Score\t");
+		for (int i = 0; i < 5; i++) {
+			System.out.printf("%4d ", lowscores[i]);
+		}
+		System.out.println();
+	}
+
+	public void printhigh() {
+		System.out.printf("High Score\t");
+		for (int i = 0; i < 5; i++) {
+			System.out.printf("%4d ", highscores[i]);
+		}
+		System.out.println();
+	}
+
+	public void printaverage() {
+		System.out.printf("Average Score\t");
+		for (int i = 0; i < 5; i++) {
+			System.out.printf("%4.1f ", avgscores[i]);
+		}
+		System.out.println();
+	}
+}

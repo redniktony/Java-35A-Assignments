@@ -1,0 +1,170 @@
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.text.SimpleDateFormat;
+
+public class DisneyCottage extends JFrame implements ItemListener {
+
+	private static final long serialVersionUID = 1L;
+	FlowLayout flow = new FlowLayout();
+
+	// calculation variables
+	double price, price1, price2 = 0;
+	public long numberOfDays;
+	public double diffDays, diffDays1;
+	// image
+	// ImageIcon image = new ImageIcon("movdragonfly.gif");
+	// JLabel label = new JLabel(image);
+	// start and end date labels (user enters)
+	JLabel l = new JLabel("Start Date");
+	JLabel l1 = new JLabel("End Date");
+
+	// user enters start and end date for bed size(JTextField)
+	public final static JTextField t1 = new JTextField(5);
+	public final static JTextField t2 = new JTextField(5);
+	// user enters optional start and end date for boat rent(JTextField)
+	public final static JTextField t1a = new JTextField(5);
+	public final static JTextField t2a = new JTextField(5);
+	// date format
+	static SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+	/** Choices for user to pick **/
+	JLabel dateChoice = new JLabel("Please enter exact dates of your " + "stay. (yyyy/MM/dd)", SwingConstants.CENTER);
+	JLabel choice = new JLabel("Which size would you like?");
+	JLabel yesNo = new JLabel("Do you want to rent a boat?");
+	JLabel bedchoice = new JLabel("Rent two rooms?");
+	JCheckBox yes = new JCheckBox("[YES]");
+	JCheckBox no = new JCheckBox("[NO]");
+	JCheckBox bed1 = new JCheckBox("$ 600/week One bedroom cottage");
+	JCheckBox bed2 = new JCheckBox("$ 850/week Two bedroom cottage");
+	JLabel option = new JLabel("Additional options:" + "\nHow long do you want to rent your boat?");
+	JCheckBox boat = new JCheckBox("$ 60/week Rowboat rental");
+	JLabel totalPrice = new JLabel("Total Price: $" + price + "0 /week");
+
+	/** Choices for user END **/
+
+	// DisneyCottage constructor, sets the font and color and adds to the JFrame
+	public DisneyCottage() {
+		// set the flow
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new FlowLayout());
+
+		/** ADDING JLABEL and JCHECKBOX to ITEMLISTENER **/
+		bed1.addItemListener(this);
+		yes.addItemListener(this);
+		no.addItemListener(this);
+		bed2.addItemListener(this);
+		boat.addItemListener(this);
+		/** END ADDING TO ITEMLISTENER **/
+
+		/** ADDING TO THE JFRAME **/
+		add(dateChoice);
+		add(l);
+		add(t1);
+		add(l1);
+		add(t2);
+		add(yesNo);
+		add(yes);
+		add(no);
+		add(choice);
+		add(bed1);
+		add(bed2);
+		add(option);
+		add(t1a);
+		add(t2a);
+		add(boat);
+		add(totalPrice);
+		/** END OF ADDING TO JFRAME **/
+	}
+
+	/*** Performs the selecion choice and calculated the total rent stay ***/
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// create object
+		Object source = e.getItem();
+
+		// if user picks yes (boat rent) disable no and enable boat
+		if (source == yes) {
+			int select = e.getStateChange();
+			if (select == ItemEvent.SELECTED) {
+				no.setEnabled(false);
+				boat.setEnabled(true);
+				t1a.setEnabled(true);
+				t2a.setEnabled(true);
+			} // if user diselects yes,enable no
+			else if (select == ItemEvent.DESELECTED) {
+				no.setEnabled(true);
+			}
+		}
+		// if user picks no (boat rent) disable yes and disable boat
+		if (source == no) {
+			int select = e.getStateChange();
+			if (select == ItemEvent.SELECTED) {
+				yes.setEnabled(false);
+				boat.setEnabled(false);
+				t1a.setEnabled(false);
+				t2a.setEnabled(false);
+			} // if user diselects no, enable yes and enable boat
+			else if (select == ItemEvent.DESELECTED) {
+				yes.setEnabled(true);
+				boat.setEnabled(true);
+			}
+		}
+		// if user picks bed1 (600), calculate the total payment, disable
+		// bed2(85) and enable boat
+		if (source == bed1) {
+			diffDays = CalculationFrame.getDays(t1, t2);
+			int select = e.getStateChange();
+			if (select == ItemEvent.SELECTED) {
+				price = price + 600.00 * (diffDays / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+				bed2.setEnabled(false);
+				boat.setEnabled(true);
+			}
+			// if user diselects bed1(600), subtract the total payment and
+			// enable bed2(850)
+			else if (select == ItemEvent.DESELECTED) {
+				price = price - 600.00 * (diffDays / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+				bed2.setEnabled(true);
+			}
+		}
+		// if user selectd bed2(850), calculate the total payment, disable
+		// bed1(600) and enable boat
+		if (source == bed2) {
+			diffDays = CalculationFrame.getDays(t1, t2);
+			int select = e.getStateChange();
+			if (select == ItemEvent.SELECTED) {
+				price = price + 850.00 * (diffDays / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+				bed1.setEnabled(false);
+				boat.setEnabled(true);
+			}
+			// if user diselects bed2(850), subtract the total payment and
+			// enable bed1(600)
+			else if (select == ItemEvent.DESELECTED) {
+				price = price - 850.00 * (diffDays / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+				bed1.setEnabled(true);
+			}
+		}
+		// if user selects boat (60, optionally) calculate the boat payment
+		// separately and
+		// add to bed1(600) or bed2(600).
+		if (source == boat) {
+			diffDays1 = CalculationFrame.getDays1(t1a, t2a);
+			int select = e.getStateChange();
+			if (select == ItemEvent.SELECTED) {
+				price = price + 60.00 * (diffDays1 / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+
+			} // if user diselects boat, subtract the boat payment ONLY and
+				// update the total payment
+			else if (select == ItemEvent.DESELECTED) {
+				price = price - 60.00 * (diffDays1 / 7);
+				totalPrice.setText("Total Price: $" + price + "0 /week");
+
+			}
+		}
+	}
+
+}

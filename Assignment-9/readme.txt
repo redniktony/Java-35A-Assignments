@@ -1,0 +1,2 @@
+This is a Disney's Cottages check in program. At first it came out a welcome menu. 
+Then try in the date and selection you need to choose. So in the end also has the boat rental program. Out put the money.

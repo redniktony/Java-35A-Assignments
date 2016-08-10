@@ -1,0 +1,57 @@
+package lab2;
+
+import java.io.Serializable;
+
+public class Student implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private int SID;
+	private int scores[] = new int[5];
+
+	// Default Constructor
+	public Student(int sID, int[] scores) {
+		super();
+		SID = sID;
+		this.scores = scores;
+	}
+	// =========================================
+
+	// Getter and Setter
+	public int getSID() {
+		return SID;
+	}
+
+	public void setSID(int sID) {
+		SID = sID;
+	}
+
+	public int getScores(int i) {
+		return scores[i];
+	}
+
+	public void setScores(int[] scores) {
+		this.scores = scores;
+	}
+	// =========================================
+
+	public void recordScores() {
+		for (int i = 0; i < scores.length; i++) {
+			this.scores[i] = scores[i];
+		}
+	}
+
+	public void printInfo(Student stu) {
+		System.out.printf("%d", stu.getSID());
+		for (int i = 0; i < SID; i++) {
+			System.out.printf("%3d", stu.getScores(i));
+
+		}
+	}
+
+	// Write public methods for SID and scores add methods to print values of
+	// instance variables
+}

@@ -1,0 +1,58 @@
+		   Personal Information Table
+===================================================================
+Type how many people you want to record their personal information
+===================================================================
+People Need Record: 
+3
+Please Enter Your Name: (Please replace space with '_')
+Tony
+Please Enter Your Address: (Please replace space with '_')
+1234_Jacson_St
+Please Enter Your Age: 
+23
+Please Enter Your Phone Number: 
+1234567890
+Your information is
+----------------------------------------------------------
+Name: Tony
+Age: 23
+Address: 1234_Jacson_St
+Phone Number: 1234567890
+~~~~~~~~~~~~~~~~~~~~~~END OF 1 people~~~~~~~~~~~~~~~~~~~~~
+
+
+Please Enter Your Name: (Please replace space with '_')
+Atem
+Please Enter Your Address: (Please replace space with '_')
+564_Washington_Ave
+Please Enter Your Age: 
+24
+Please Enter Your Phone Number: 
+1234567890
+Your information is
+----------------------------------------------------------
+Name: Atem
+Age: 24
+Address: 564_Washington_Ave
+Phone Number: 1234567890
+~~~~~~~~~~~~~~~~~~~~~~END OF 2 people~~~~~~~~~~~~~~~~~~~~~
+
+
+Please Enter Your Name: (Please replace space with '_')
+Lily
+Please Enter Your Address: (Please replace space with '_')
+2727_Rose_Street
+Please Enter Your Age: 
+18
+Please Enter Your Phone Number: 
+1234567890
+Your information is
+----------------------------------------------------------
+Name: Lily
+Age: 18
+Address: 2727_Rose_Street
+Phone Number: 1234567890
+~~~~~~~~~~~~~~~~~~~~~~END OF 3 people~~~~~~~~~~~~~~~~~~~~~
+
+
+You have recored 3 people so far! Thanks for using!!!

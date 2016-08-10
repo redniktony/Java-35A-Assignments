@@ -1,0 +1,48 @@
+//function of this main
+//read data 
+//analyze results for each store
+//print for each store
+import java.util.Scanner;
+public class Driver {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		FileIO a1 = new FileIO("/Users/redniktony/Documents/workspace/Assignment 3/src/Salesdat.txt");
+		
+		System.out.println("\t\tWelcome to the Store Data Reader!!!");
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println("1.The total sales for each week. ");
+		System.out.println("2.The average daily sales for each week.");
+		System.out.println("3.The total sales for all the weeks.");
+		System.out.println("4.The average weekly sales.");
+		System.out.println("5.The week with the highest amount in sales.");
+		System.out.println("6.The week with the lowest amount in sales.");
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println("Please enter your selection by number:");
+		int selection=0;
+		selection = input.nextInt();
+		switch(selection)
+		{
+			case 1:
+				System.out.println("Test");
+				break;
+			case 2:
+				System.out.println("Try");
+				break;
+			case 3:
+				System.out.println("me");
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			default:
+				System.out.println("Please Enter a vaild number!!!");
+		}
+		
+		Franchise f = a1.readData();
+		
+	}
+}

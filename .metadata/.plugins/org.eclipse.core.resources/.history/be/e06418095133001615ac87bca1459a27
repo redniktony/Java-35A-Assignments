@@ -1,0 +1,56 @@
+package lab2;
+
+import java.io.*;
+import java.util.*;
+
+public class Util {
+
+	public static int number = 0;
+
+	static Student[] readFile(String filename, Student[] stu) {
+		int row = 0, column = 0;
+		String line;
+		try {
+
+			FileReader file = new FileReader(filename);
+			BufferedReader buff = new BufferedReader(file);
+			int[] scores = new int[5];
+			while ((line = buff.readLine()) != null) {
+				StringTokenizer st = new StringTokenizer(line);
+				// System.out.println(line);
+				while (st.hasMoreTokens()) {
+					if (column == 0) {
+						stu[row].setSID(Integer.parseInt(st.nextToken()));
+					} else {
+						scores[column - 1] = Integer.parseInt(st.nextToken());
+					}
+					column++;
+					stu[row].recordScores(scores);
+				}
+				row++;
+				column = 0;
+			}
+			numberOfStudent(row);
+			file.close();
+			buff.close();
+		} catch (IOException e) {
+			System.out.println("===================================================");
+			System.out.println("Error -- " + e.toString());
+			System.out.println("\n\tPlease restart the progam");
+			System.out.println("===================================================");
+			System.exit(0);
+		}
+		return stu;
+	}
+
+	public static void numberOfStudent(int numbers) {
+		number = numbers;
+	}
+
+	// Reads the file and builds student array.
+	// Open the file using FileReader Object.
+	// In a loop read a line using readLine method.
+	// Tokenize each line using StringTokenizer Object
+	// Each token is converted from String to Integer using parseInt method
+	// Value is then saved in the right property of Student Object.
+}

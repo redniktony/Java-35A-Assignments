@@ -1,0 +1,108 @@
+
+/*Zequn Yu
+    CIS 35A, 61Y
+    Lab 8
+    6/13/2016
+    6/15/2016
+*/
+
+import java.util.*;
+
+public class GeometricObject {
+	String color;
+	boolean filled;
+
+	Scanner input = new Scanner(System.in);
+
+	// private java.util.Data dataCreated;
+
+	// default constructor
+	protected GeometricObject() {
+		;
+	}
+
+	// constructor
+	protected GeometricObject(String color, boolean filled) {
+		this.color = color;
+		this.filled = filled;
+	}
+
+	// getters and setters
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public boolean isFilled() {
+		return filled;
+	}
+
+	public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+
+	// Override
+	public String toString() {
+		return "\nThe color is:" + color + "\nIs it filled: " + filled;
+	}
+
+	// An inner class
+	class TriangleObject {
+
+		private double firstSide;
+		private double secondSide;
+		private double thirdSide;
+
+		// setters and getters
+
+		public double getFirstSide() {
+			return firstSide;
+		}
+
+		public void setFirstSide(double firstSide) {
+			this.firstSide = firstSide;
+		}
+
+		public double getSecondSide() {
+			return secondSide;
+		}
+
+		public void setSecondSide(double secondSide) {
+			this.secondSide = secondSide;
+		}
+
+		public double getThirdSide() {
+			return thirdSide;
+		}
+
+		public void setThirdSide(double thirdSide) {
+			this.thirdSide = thirdSide;
+		}
+
+		// methods
+		public double calArea() {
+			double p = (getFirstSide() + getSecondSide() + getThirdSide()) / 3;
+			double triArea = Math.sqrt(p * (p - getFirstSide()) * (p - getFirstSide()) * (p - getFirstSide()));
+			return triArea;
+		}
+
+		public double calMeter() {
+			double perimeter = getFirstSide() + getSecondSide() + getThirdSide();
+			return perimeter;
+		}
+
+		// print the data information
+		public void printData() {
+			System.out.println("\nThe first side is: " + getFirstSide() + "\nThe second side is: " + getSecondSide()
+					+ "\nThe third  side is: " + getThirdSide() + "\nThe area is: " + calArea() + "\nThe perimeter is: "
+					+ calMeter());
+		}
+	}// inner class ends
+
+	// Accessing the inner class
+	// print the data calculated
+
+}

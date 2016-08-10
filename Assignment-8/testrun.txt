@@ -1,0 +1,62 @@
+		Triangle Information Program 
+=============================================================
+Enter three sides of the triangle: 
+=============================================================
+Please enter the value of the first side: 
+2
+Please enter the value of the second side: 
+
+3
+Please enter the value of the third side: 
+4
+=============================================================
+Please enter the color of the object: 
+red
+Is it filled: (y or n)
+y
+=============================================================
+		Triangle Information 
+
+Is filled? true
+Color: red
+
+The first side is: 2.0
+The second side is: 3.0
+The third  side is: 4.0
+The area is: 1.7320508075688772
+The perimeter is: 9.0
+=============================================================
+Thanks for using!!!
+=============================================================
+
+
+
+		Triangle Information Program 
+=============================================================
+Enter three sides of the triangle: 
+=============================================================
+Please enter the value of the first side: 
+4
+Please enter the value of the second side: 
+4
+Please enter the value of the third side: 
+5
+=============================================================
+Please enter the color of the object: 
+blue
+Is it filled: (y or n)
+y
+=============================================================
+		Triangle Information 
+
+Is filled? true
+Color: blue
+
+The first side is: 4.0
+The second side is: 4.0
+The third  side is: 5.0
+The area is: 0.40061680838488717
+The perimeter is: 13.0
+=============================================================
+Thanks for using!!!
+=============================================================
